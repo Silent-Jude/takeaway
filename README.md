@@ -32,5 +32,5 @@
 #学习到的知识点。
 1.offsetLeft获取的是元素相对于其最近的一个具有定位属性的父元素的左偏移量，并且获取到的是没有单位的数字。
 而style.left获取到的也是具有position属性元素的左偏移量，但是只能获取内联样式中的style.left，即外部css中定
-义的left是获取不到的。console的果是空。
+义的left是获取不到的。console的结果是空。
 
