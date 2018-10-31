@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer p {
+  text-align: center;
+  color: #ccc;
+  font-size: 12px;
+}
+
+footer a:link {
+  color: #ccc;
+}
+
+footer a:visited {
+  color: #ccc;
+}
+
+footer a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+footer a:active {
+  color: #ccc;
+}
+
+
+.alert {
+  height: 40px;
+  width: 270px;
+  line-height: 40px;
+}
+
+.alert>p {
+  display: none;
+}
+
+.content::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  background: url(../image/logo_max.png);
+  width: 144px;
+  height: 59px;
+  margin: 30px 0 30px 30px;
+}
+
+.left {
+  width: 480px;
+  height: 370px;
+  background: url(../image/login.png);
+  float: left;
+}
+
+.right {
+  width: 270px;
+  height: 383px;
+  float: left;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
+.input-content>p {
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input-content {
+  position: relative;
+}
+
+.submit,
+#logName,
+#upwd {
+  width: 270px;
+  height: 35px;
+  border: 1px solid #999;
+  outline: none;
+}
+
+#logName {
+  margin: 8px 0 18px 0;
+  padding-left: 28px;
+
+}
+
+#logName:focus {
+  border-color: #FFD705;
+}
+
+#upwd:focus {
+  border-color: #FFD705;
+}
+
+.ico-user {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background: url(../image/icon-2.png) no-repeat -1250px -617px;
+  position: absolute;
+  top: 74px;
+  left: 6px;
+}
+
+.ico-upwd {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background: url(../image/icon-2.png) no-repeat -1250px -527px;
+  position: absolute;
+  top: 126px;
+  left: 6px;
+}
+
+#upwd {
+  margin-bottom: 8px;
+  padding-left: 28px;
+}
+
+.submit {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  background: #FFD705;
+  color: #6B450A;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  cursor: pointer
+}
+
+.otherLogin {
+  margin-top: 15px;
+  position: relative;
+}
+
+.qq {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../image/icon-2.png) no-repeat -1250px -491px;
+  margin-right: 24px;
+}
+
+.weibo {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../image/icon-2.png) no-repeat -1250px -599px;
+}
+
+.otherLogin p {
+  border-top: #ccc 1px solid;
+  text-align: center;
+  position: relative;
+}
+
+.otherLogin span {
+  width: 150px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+  background: #fff;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%)
+}
+
+.auto {
+  font-size: 12px;
+  line-height: 21px;
+  color: #333
+}
+
+.forget {
+  float: right;
+  color: #FA9700;
+}
+
+#auto-login {
+  margin-right: 5px;
+  vertical-align: baseline
+}
+
+.other {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.reg {
+  color: #FA9700;
+}
+
+
+
+@media screen and (max-width:992px) {
+
+  .main,
+  .content {
+    width: 100%;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    float: none;
+    margin: 0 auto;
+  }
+}

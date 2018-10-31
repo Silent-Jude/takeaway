@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+footer p {
+  text-align: center;
+  color: #ccc;
+  font-size: 12px;
+}
+
+footer a:link {
+  color: #ccc;
+}
+
+footer a:visited {
+  color: #ccc;
+}
+
+footer a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+footer a:active {
+  color: #ccc;
+}
+
+span {
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
+}
+
+.header {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.top {
+  padding-top: 10px;
+  border-bottom: 2px solid #FFD705
+}
+
+.content {
+  width: 50%;
+  margin: 0 auto;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+input {
+  width: 260px;
+  height: 35px;
+  border: 1px solid #aaa;
+  outline: none;
+  margin-left: 10px;
+}
+
+input:focus {
+  border: 1px solid #FFD705;
+}
+
+.reg {
+  margin: 40px 0 20px 0;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.phone,
+.upwd {
+  margin-bottom: 10px;
+}
+
+.msg,
+.cpwd,
+.uname {
+  margin: 10px 0 20px 0
+}
+
+.submit {
+  background: #FFD705;
+  color: #6B450A;
+  width: 178px;
+  height: 35px;
+  font-weight: 700;
+  margin-left: 110px;
+  cursor: pointer;
+  border-radius: 3px;
+  vertical-align: bottom;
+}
+
+.get-msg,
+.safe-lever,
+.protocol {
+  margin-left: 110px;
+}
+
+.protocol {
+  color: #FA9700;
+}
+
+.protocol:hover {
+  text-decoration: underline;
+}
+
+.other {
+  display: inline-block;
+  background: #FFD705;
+  color: #6B450A;
+  width: 176px;
+  height: 33px;
+  line-height: 33px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  margin-left: 50px;
+  border: 1px solid #aaa;
+}
+
+.weak,
+.mid,
+.strong {
+  display: inline-block;
+  width: 84px;
+  height: 20px;
+  background: #ddd;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  margin-left: 0;
+  transition: all 1s;
+}
+
+.get-msg {
+  display: block;
+  width: 136px;
+  height: 21px;
+  color: #555;
+  border: 1px #e3e3e3 solid;
+  font-size: 14px;
+  background-image: linear-gradient(to bottom, #f7f7f7, #dedede);
+  border-bottom: 1px solid #aaa;
+  padding: 0 10px 0 10px;
+  border-radius: 2px;
+}
+
+.get-msg:hover {
+  background-image: linear-gradient(to bottom, #f7f7f7, #fdfdfd);
+}
+
+.login {
+  color: #FA9700;
+  font-size: 12px;
+  display: none;
+
+}
