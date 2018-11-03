@@ -1,4 +1,4 @@
-var warning = 'display:inline-block;width:17px;height:17px;background:url(../image/icon.png) 0 -296px;margin-left:10px';
+var warning = 'display:inline-block;width:17px;height:17px;background:url(image/icon.png) 0 -296px;margin-left:10px';
 var isLogin = false;
 var isUname = false;
 var isPhone = false;

@@ -8,6 +8,7 @@
   <title>美团外卖！</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
   <script src="js/onscroll.js"></script>
   <script src="js/onresize.js"></script>
   <script src="js/common.js"></script>
@@ -15,25 +16,10 @@
 </head>
 
 <body onload="load()">
-  <header>
-    <div class="fix">
-      <div class="header-content">
-        <!-- 头部通用板块 -->
-        <div class="header-left"></div>
-        <div class="header-right">
-          <ul class="nav">
-            <li><a class="navigate" href="https://www.baidu.com/" target="_blank">首页</a></li>
-            <li><a class="navigate" href="#" target="_blank">入驻加盟</a></li>
-            <li><a class="navigate" href="#" target="_blank">开放平台</a></li>
-            <li><a class="navigate" href="#" target="_blank">社会责任</a></li>
-            <li><a class="navigate" href="#" target="_blank">点外卖</a></li>
-            <li><a class="navigate" href="#" target="_blank">下载手机版</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="header-bg" id="header-bg"></div>
+  <header id="header">
+    <div id="header-bg" class="header-bg"></div>
   </header>
+
 
   <nav>
     <div class="navbar">
@@ -104,18 +90,17 @@
           <div class="story-container">
             <div id="caseView" class="caseView">
               <ul class="case-content">
-                <li class="case-item-wrap">
+                <!--                 <li class="case-item-wrap">
                   <a href="#" class="story-link">
                     <div class="case-item-text">
                       <h2>美团外卖骑手人物：徐振</h2>
                       <h3>平凡之路上的英雄梦</h3>
                       <p>我觉得自从成了美团众包骑手之后，遇到了很多有趣新奇的人和事。以前我的生活比较单调，上班、回家两点一线。加入美团众包后，认识了许多朋友，帮助了一些人也得到了一些人的帮助。美团众包，为我的生活打开了一扇新的大门。我喜欢它的弹性、自由，让我对生活有了更多的掌控......</p>
                       <button onclick="javascript:" type="button">查看详情</button>
-                      <!--      <a href="#">查看详情</a> -->
                     </div>
                     <img src="image/story3.jpg" class="story-img" alt="story3">
                   </a>
-                </li>
+                </li> -->
                 <li class="case-item-wrap">
                   <a href="#" class="story-link">
                     <div class="case-item-text">
@@ -123,7 +108,6 @@
                       <h3>米粉面馆接入经营助手服务，收入增幅达51.52%</h3>
                       <p>开一家店有多操心？加盟、选址、经营、管理到真正赚钱，期间的辛苦只有每家店老板才深有体会。美团服务市场聚集垂直领域优质服务商，打造一站式服务生态！从新店开业到老店升级、从店铺装修到营销托管、从食材供应到金融服务等，为所有商家提供店铺经营全方位服务，解决经营所遇难题，助力轻松做生意。</p>
                       <button onclick="javascript:" type="button">查看详情</button>
-                      <!--      <a href="#">查看详情</a> -->
                     </div>
                     <img src="image/story1.jpg" class="story-img" alt="story3">
                   </a>
@@ -135,7 +119,6 @@
                       <h3>为减肥而成为美团兼职骑手，后来副业变“主业”</h3>
                       <p>李君是11位骑手中的一位，来自内蒙古包头市，他近三个月的准时率平均达到了99.9%，满意度100。当问到他知道自己可以去俄罗斯看世界杯时是什么心情，李君说接到电话刚开始不敢相信，后来反应过来就直接飞奔回家拿上身份证就去办加急护照了。开心激动的心情久久难平复……</p>
                       <button onclick="javascript:" type="button">查看详情</button>
-                      <!--      <a href="#">查看详情</a> -->
                     </div>
                     <img src="image/story2.jpg" class="story-img" alt="story3">
                   </a>
@@ -147,23 +130,22 @@
                       <h3>平凡之路上的英雄梦</h3>
                       <p>我觉得自从成了美团众包骑手之后，遇到了很多有趣新奇的人和事。以前我的生活比较单调，上班、回家两点一线。加入美团众包后，认识了许多朋友，帮助了一些人也得到了一些人的帮助。美团众包，为我的生活打开了一扇新的大门。我喜欢它的弹性、自由，让我对生活有了更多的掌控......</p>
                       <button onclick="javascript:" type="button">查看详情</button>
-                      <!--      <a href="#">查看详情</a> -->
+
                     </div>
                     <img src="image/story3.jpg" class="story-img" alt="story3">
                   </a>
                 </li>
-                <li class="case-item-wrap">
+                <!--                 <li class="case-item-wrap">
                   <a href="#" class="story-link">
                     <div class="case-item-text">
                       <h2>美团服务市场</h2>
                       <h3>米粉面馆接入经营助手服务，收入增幅达51.52%</h3>
                       <p>开一家店有多操心？加盟、选址、经营、管理到真正赚钱，期间的辛苦只有每家店老板才深有体会。美团服务市场聚集垂直领域优质服务商，打造一站式服务生态！从新店开业到老店升级、从店铺装修到营销托管、从食材供应到金融服务等，为所有商家提供店铺经营全方位服务，解决经营所遇难题，助力轻松做生意。</p>
                       <button onclick="javascript:" type="button">查看详情</button>
-                      <!--      <a href="#">查看详情</a> -->
                     </div>
                     <img src="image/story1.jpg" class="story-img" alt="story3">
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -171,9 +153,9 @@
           <!-- 轮播图下面圆点控制器。 -->
           <div id="caseNav">
             <ul class="case_nav_list">
-              <li class="case_nav_item"><a href="#"></a></li>
-              <li class="case_nav_item"><a href="#" class="active"></a></li>
-              <li class="case_nav_item"><a href="#"></a></li>
+              <li class="case_nav_item"><a class="active"></a></li>
+              <li class="case_nav_item"><a></a></li>
+              <li class="case_nav_item"><a></a></li>
             </ul>
           </div>
 
@@ -200,7 +182,9 @@
 
   <a href="javascript:;" id="btn" title="回到顶部">Top</a>
 
-  <footer></footer>
+  <footer id="footer">
+
+  </footer>
   <script>
 
   </script>

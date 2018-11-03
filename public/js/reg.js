@@ -1,8 +1,8 @@
 const SUCCESS = '1';
 const FAIL = '0';
 const OTHER = '2';
-var warning = 'display:inline-block;width:17px;height:17px;background:url(../image/icon.png) 0 -296px;margin-left:10px';
-var right = 'display:inline-block;width:17px;height:17px;background:url(../image/icon.png) 0 -453px;margin-left:10px';
+var warning = 'display:inline-block;width:17px;height:17px;background:url(image/icon.png) 0 -296px;margin-left:10px';
+var right = 'display:inline-block;width:17px;height:17px;background:url(image/icon.png) 0 -453px;margin-left:10px';
 var isUname = false;
 var isPhone = false;
 var isUpwd = false;
@@ -79,16 +79,47 @@ checkPhone = () => { //检查输入手机
   notNull('phone');
   var phone = $('phone').value;
   var div = document.getElementsByClassName('phone')[0];
-  /*
-  这里预留后端查重判定，是否存在手机号。
-  */
+
   if (phone.length != 11 && phone.length > 0 || /[a-zA-Z]/.test(phone) || /[^0-9a-zA-Z]/.test(phone)) { //判断手机号长度以及是否含有非数字字符。
     div.getElementsByTagName('span')[0].innerHTML = '请输入正确的11位手机号码';
     div.getElementsByTagName('i')[0].style = warning;
     isPhone = false;
+    console.log('格式不正确')
   } else if (phone.length == 11) {
+    console.log('格式正确，下面查重')
+    /*
+    这里预留后端查重判定，是否存在手机号。
+    */
+    var xhr = createXhr();
+    xhr.onreadystatechange = () => {
+      console.log(xhr.readyState);
 
-    div.getElementsByTagName('i')[0].style = right;
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var res = xhr.responseText;
+        console.log(res);
+
+        if (res == FAIL) {
+          console.log('失败了');
+          isPhone = false;
+          $('phone').style.border = '1px solid #F76120';
+          div.getElementsByTagName('i')[0].style = warning;
+          div.getElementsByTagName('span')[0].innerHTML = '该手机号已经被注册，请更换其他手机号或者';
+          div.getElementsByTagName('a')[0].style.display = 'inline-block';
+          div.getElementsByTagName('a')[0].innerHTML = '直接登录';
+          console.log('不可以插入，已经有人啦')
+        } else { //不重复的情况。
+          isPhone = true;
+          console.log('可以进来哦')
+          div.getElementsByTagName('i')[0].style = right;
+          $('phone').style.border = '1px solid #aaa';
+        }
+
+
+      }
+    }
+    xhr.open('get', '/user/checkPhone?phone=' + phone, true);
+    xhr.send();
+    // div.getElementsByTagName('i')[0].style = right;
   }
   /*
   这里预留后端查重判定，是否存在用户名。
@@ -96,7 +127,6 @@ checkPhone = () => { //检查输入手机
   if (!isPhone) { //验证失败，则显示输入框为橙红色。
     $('phone').style.border = '1px solid #F76120';
   }
-
 }
 
 checkMsg = () => { //这里预留检查验证码是否正确代码。
@@ -179,7 +209,7 @@ checkSafe = () => { //检查安全等级
   }
 }
 
-//前端输入时重置提示函数。
+//表单输入时重置提示函数。
 clean = (id) => {
   var div = document.getElementsByClassName(id)[0];
   div.getElementsByTagName('span')[0].innerHTML = '';
@@ -192,9 +222,13 @@ clean = (id) => {
 
 
 unameReg = () => { //3个条件全部满足的时候，可以登录。
+  console.log('马上开始')
   checkUname();
+  console.log('uname没事')
   checkUpwd();
+  console.log('upwd没事')
   checkCpwd();
+  console.log('ucpwd没事')
   if (isUname && isUpwd && isCpwd) {
     var xhr = createXhr();
     xhr.onreadystatechange = () => {
@@ -215,6 +249,38 @@ unameReg = () => { //3个条件全部满足的时候，可以登录。
     var uname = $('uname').value;
     var upwd = $('upwd').value;
     var formData = 'uname=' + uname + '&upwd=' + upwd;
+    xhr.send(formData);
+  }
+}
+
+phoneReg = () => { //3个条件全部满足的时候，可以登录。
+  console.log('马上开始')
+  checkPhone();
+  console.log('phone没事')
+  checkUpwd();
+  console.log('upwd没事')
+  checkCpwd();
+  console.log('ucpwd没事')
+  if (isPhone && isUpwd && isCpwd) {
+    var xhr = createXhr();
+    xhr.onreadystatechange = () => {
+      console.log(xhr.readyState);
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var res = xhr.responseText;
+        if (res == SUCCESS) {
+          console.log('注册成功啦！');
+          isPhone = false; //注册成功后，重置isUname的状态，防止重复注册。
+        } else {
+          console.log('有问题啊，找一找。')
+        }
+      }
+    }
+    xhr.open('post', '/user/regPhone', true);
+    console.log('我已经打开了。')
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var phone = $('phone').value;
+    var upwd = $('upwd').value;
+    var formData = 'phone=' + phone + '&upwd=' + upwd;
     xhr.send(formData);
   }
 }

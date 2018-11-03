@@ -1,7 +1,6 @@
 .my_color {
   color: #FFBA1E;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -231,7 +230,7 @@ nav {
 .img_in {
   width: 310px;
   height: 670px;
-  /* background: url(../image/desserts.png) 0 0/contain; */
+  /* background: url(image/desserts.png) 0 0/contain; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -334,8 +333,8 @@ ul.case-content {
   list-style: none;
   width: 4995px;
   position: relative;
-  left: -999px;
-  transition: all 0.3s linear;
+  left: 0px;
+  transition: all 0.5s linear;
 }
 
 ul.case-content::after {
@@ -366,6 +365,7 @@ li.case-item-wrap {
 
 #caseNav ul.case_nav_list {
   list-style: none;
+  cursor: pointer;
 }
 
 #caseNav ul.case_nav_list::after {
@@ -389,6 +389,10 @@ li.case-item-wrap {
 }
 
 #caseNav a.active {
+  background: #000;
+}
+
+#caseNav a:hover {
   background: #000;
 }
 
@@ -419,4 +423,3 @@ li.case-item-wrap {
 #caseNext {
   left: 1020px;
 }
-

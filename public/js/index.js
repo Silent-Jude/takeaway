@@ -86,6 +86,7 @@ function hoverList(id) {
 //以上代码为轮播1的实现，采用了直接修改background的url属性的原理来实现，主要运用了以下技术来实现：Dom操作，定时器，js事件处理。
 
 
+
 //下面为轮播图2的实现代码，采用offset偏移来实现。
 carousel_part_2 = () => {
   //获取图片轮播的ul对象数组。
@@ -100,19 +101,20 @@ carousel_part_2 = () => {
   //这里有个知识点，offsetLeft获取的是元素相对于其最近的一个具有定位属性的父元素的左偏移量，并且获取到的是没有单位的数字。
   //而style.left获取到的也是具有position属性元素的左偏移量，但是只能获取内联样式中的style.left，即css中定义的left是获取不到的。console结果是空。
   //index取值范围0-2，对应3个小圆点下标。
-  var index = 1;
+  var index = 0;
   preArrow.onclick = () => {
     //切换到上一张图，ul整体是像右移动，即x正轴，所以加999.
     /*  
     var offset = parseInt(caseUl.offsetLeft) + 999;
     caseUl.style.left = offset + 'px';
     */
-    scroll(999);
+
     //判断圆点处于最左边，则重新赋值让其上一张切换到最后一个下标2；
-    if (index == 0) {
-      index = 3
-    };
     index--;
+    if (index == -1) {
+      index = 2
+    };
+    scroll(999);
     navActive(index);
   }
 
@@ -123,12 +125,12 @@ carousel_part_2 = () => {
     var offset = parseInt(caseUl.offsetLeft) - 999;
     caseUl.style.left = offset + 'px'; 
     */
-    scroll(-999);
     //判断圆点处于最右边，则重新赋值让其下一张切换到第一个下标0；
-    if (index == 2) {
-      index = -1
-    }
     index++;
+    if (index == 3) {
+      index = 0
+    }
+    scroll(-999);
     navActive(index);
   }
 
@@ -143,30 +145,40 @@ carousel_part_2 = () => {
 
   /*
   下面封装轮播图的轮播函数，并且实现无限循环。原理是：
-  当offsetLeft左偏移量大于-999时，说明之前展示的是第一张图，应该展示的是第三张图，而三张图的偏移量是-999-999-999=-2997px;
-  如果小于-2997px，则说明之前展示的是第三张图，应该改成展示第一张图,第一张图的偏移量是-999px;
-  有个bug，右滚到最后一张时，因为偏移量的改变，动画效果是显示左滚.....虽然结果是对的，但是过程很难受，待解决。
+  当offsetLeft左偏移量大于 0 时，说明之前展示的是第一张图，现在应该展示的是第三张图，而三张图的偏移量是-999-999=-1998px;
+  如果小于-1998px，则说明之前展示的是第三张图，应该改成展示第一张图,第一张图的偏移量是0px;
+  bug一，右滚到最后一张时，因为偏移量的改变，动画效果是显示左滚.....虽然结果是对的，但是过程很难受，待解决。
   */
   scroll = (offset) => {
     //基本滚动，根据传入进来的index实现。
-    var newleft = parseInt(caseUl.offsetLeft) + offset;
-    caseUl.style.left = newleft + 'px';
+    console.log('在添加之前ul的style.left左偏移量为：' + caseUl.style.left);
+    console.log('在添加之前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
+    //bug2，如果鼠标点击过快，移动还没结束的时候，offsetLeft的值是位移过程中的值，从而导致图片显示不完整。
+    //如何解决？
 
-    //无限滚动判定。
-    if (newleft > -999) {
-      caseUl.style.left = -2997 + 'px';
-    }
-    if (newleft < -2997) {
-      caseUl.style.left = -999 + 'px'
-    }
+    /*     var newleft = parseInt(caseUl.offsetLeft) + offset;
+        caseUl.style.left = newleft + 'px';
+        //无限滚动判定。
+        if (newleft > 0) {
+          caseUl.style.left = -1998 + 'px';
+        }
+        if (newleft < -1998) {
+          caseUl.style.left = 0 + 'px'
+        } */
+    caseUl.style.left = -999 * index + 'px';
+    console.log('滚动完成后的index值为：' + index);
+    console.log('当前ul的style.left左偏移量为：' + caseUl.style.left);
+    console.log('当前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
   }
+
 
   //开启轮播图定时器，间隔1.5秒执行一次，调用下一张nextArrow.onclick();
   var timer = null;
   play = () => {
+    clearInterval(timer);
     timer = setInterval(() => {
       nextArrow.onclick();
-    }, 1500)
+    }, 5000)
   };
   play();
 
@@ -176,21 +188,59 @@ carousel_part_2 = () => {
   }
 
   //添加圆点标签的鼠标事件hover。
-  hover = () => {
+  setIndex = () => {
     for (var i = 0; i < caseList.children.length; i++) {
       caseList.children[i].children[0].setAttribute('index', i); //为圆点标签a添加自定义属性index，用于记录下标。
-      caseList.children[i].children[0].onmouseover = () => {
-        stop();
-        
-      }
     }
-
   }
-  hover();
+  setIndex();
+
+
+  /*   for (var i = 0; i < 3; i++) {
+      caseList.children[i].children[0].onclick = () => {
+        var currentIndex = caseList.children[i].children[0].getAttribute('index')
+        console.log(currentIndex);
+        stop();
+        navActive(currentIndex);
+        index = currentIndex;
+        scroll();
+      }
+    } 感觉这里有个神坑，为什么i永远等于3？函数体内的变量无法正确使用吗？函数体中的children[i]一直等于children[i]，最终导致错误。*/
+
+  caseList.children[0].children[0].onclick = () => {
+    var currentIndex = caseList.children[0].children[0].getAttribute('index')
+    console.log(currentIndex);
+    stop();
+    navActive(currentIndex);
+    index = currentIndex;
+    scroll();
+  }
+  caseList.children[1].children[0].onclick = () => {
+    var currentIndex = caseList.children[1].children[0].getAttribute('index')
+    console.log(currentIndex);
+    stop();
+    navActive(currentIndex);
+    index = currentIndex;
+    scroll();
+  }
+  caseList.children[2].children[0].onclick = () => {
+    var currentIndex = caseList.children[2].children[0].getAttribute('index')
+    console.log(currentIndex);
+    stop();
+    navActive(currentIndex);
+    index = currentIndex;
+    scroll();
+  }
 
 
 
-
+  caseList.onmouseover = () => {
+    console.log('in');
+    stop();
+  }
+  caseList.onmouseout = () => {
+    play();
+  }
 
   //添加鼠标事件，当鼠标移入和移出的时候分别关闭和开启轮播计时器。
   caseUl.onmouseover = () => {
@@ -212,3 +262,32 @@ carousel_part_2 = () => {
     play();
   };
 }
+
+(() => { //header动态加载。
+  var xhr = createXhr();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var res = xhr.responseText;
+      console.log(res);
+      var header = $('header');
+      header.innerHTML += res;
+    }
+  }
+  xhr.open('get', 'header.html', true);
+  xhr.send();
+})();
+
+
+(() => { //footer动态加载
+  var xhr = createXhr();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var res = xhr.responseText;
+      console.log(res);
+      var footer = $('footer');
+      footer.innerHTML = res;
+    }
+  }
+  xhr.open('get', 'footer.html', true);
+  xhr.send();
+})();
