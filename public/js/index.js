@@ -1,6 +1,6 @@
 load = () => {
   window.onresize();
-  window.onscroll();
+  // window.onscroll();
   active('delicacy');
   turns();
   carousel_part_2();
@@ -148,11 +148,12 @@ carousel_part_2 = () => {
   当offsetLeft左偏移量大于 0 时，说明之前展示的是第一张图，现在应该展示的是第三张图，而三张图的偏移量是-999-999=-1998px;
   如果小于-1998px，则说明之前展示的是第三张图，应该改成展示第一张图,第一张图的偏移量是0px;
   bug一，右滚到最后一张时，因为偏移量的改变，动画效果是显示左滚.....虽然结果是对的，但是过程很难受，待解决。
+  
   */
   scroll = (offset) => {
     //基本滚动，根据传入进来的index实现。
-    console.log('在添加之前ul的style.left左偏移量为：' + caseUl.style.left);
-    console.log('在添加之前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
+    // console.log('在添加之前ul的style.left左偏移量为：' + caseUl.style.left);
+    // console.log('在添加之前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
     //bug2，如果鼠标点击过快，移动还没结束的时候，offsetLeft的值是位移过程中的值，从而导致图片显示不完整。
     //如何解决？
 
@@ -165,10 +166,11 @@ carousel_part_2 = () => {
         if (newleft < -1998) {
           caseUl.style.left = 0 + 'px'
         } */
+    //解决办法，通过index的值来决定偏移距离，因为index的值是整数，所以无论如何都不会出现半张图的情况。
     caseUl.style.left = -999 * index + 'px';
-    console.log('滚动完成后的index值为：' + index);
-    console.log('当前ul的style.left左偏移量为：' + caseUl.style.left);
-    console.log('当前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
+    // console.log('滚动完成后的index值为：' + index);
+    // console.log('当前ul的style.left左偏移量为：' + caseUl.style.left);
+    // console.log('当前ul的offsetLeft左偏移量为：' + caseUl.offsetLeft);
   }
 
 
@@ -178,7 +180,7 @@ carousel_part_2 = () => {
     clearInterval(timer);
     timer = setInterval(() => {
       nextArrow.onclick();
-    }, 5000)
+    }, 2000)
   };
   play();
 
@@ -206,31 +208,44 @@ carousel_part_2 = () => {
         scroll();
       }
     } 感觉这里有个神坑，为什么i永远等于3？函数体内的变量无法正确使用吗？函数体中的children[i]一直等于children[i]，最终导致错误。*/
+  //原来是因为函数内的i在未执行前，一直是i。。。！如何解决？
+  for (var item of caseList.children) {
+    // console.log(item);
+    item.children[0].onclick = function () { //这里不能用箭头函数，否则this将指向window。
+      console.log(this);
+      var currentIndex = this.getAttribute('index');
+      console.log(currentIndex);
+      stop();
+      navActive(currentIndex);
+      index = currentIndex;
+      scroll();
+    }
+  }
 
-  caseList.children[0].children[0].onclick = () => {
-    var currentIndex = caseList.children[0].children[0].getAttribute('index')
-    console.log(currentIndex);
-    stop();
-    navActive(currentIndex);
-    index = currentIndex;
-    scroll();
-  }
-  caseList.children[1].children[0].onclick = () => {
-    var currentIndex = caseList.children[1].children[0].getAttribute('index')
-    console.log(currentIndex);
-    stop();
-    navActive(currentIndex);
-    index = currentIndex;
-    scroll();
-  }
-  caseList.children[2].children[0].onclick = () => {
-    var currentIndex = caseList.children[2].children[0].getAttribute('index')
-    console.log(currentIndex);
-    stop();
-    navActive(currentIndex);
-    index = currentIndex;
-    scroll();
-  }
+  // caseList.children[0].children[0].onclick = () => {
+  //   var currentIndex = caseList.children[0].children[0].getAttribute('index')
+  //   console.log(currentIndex);
+  //   stop();
+  //   navActive(currentIndex);
+  //   index = currentIndex;
+  //   scroll();
+  // }
+  // caseList.children[1].children[0].onclick = () => {
+  //   var currentIndex = caseList.children[1].children[0].getAttribute('index')
+  //   console.log(currentIndex);
+  //   stop();
+  //   navActive(currentIndex);
+  //   index = currentIndex;
+  //   scroll();
+  // }
+  // caseList.children[2].children[0].onclick = () => {
+  //   var currentIndex = caseList.children[2].children[0].getAttribute('index')
+  //   console.log(currentIndex);
+  //   stop();
+  //   navActive(currentIndex);
+  //   index = currentIndex;
+  //   scroll();
+  // }
 
 
 
@@ -263,12 +278,14 @@ carousel_part_2 = () => {
   };
 }
 
+
+
 (() => { //header动态加载。
   var xhr = createXhr();
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var res = xhr.responseText;
-      console.log(res);
+      // console.log(res);
       var header = $('header');
       header.innerHTML += res;
     }
@@ -283,7 +300,7 @@ carousel_part_2 = () => {
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var res = xhr.responseText;
-      console.log(res);
+      // console.log(res);
       var footer = $('footer');
       footer.innerHTML = res;
     }
@@ -291,3 +308,35 @@ carousel_part_2 = () => {
   xhr.open('get', 'footer.html', true);
   xhr.send();
 })();
+
+
+
+//返回顶部代码。
+scrollTop = () => {
+  var timer = setInterval(
+    function () {
+      var top = document.body.scrollTop || document.documentElement.scrollTop;
+      console.log(top);
+      var step = parseInt(top / 10);
+      console.log(step);
+      document.body.scrollTop = top - step;
+      document.documentElement.scrollTop = top - step;
+      if (top < 10) {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      if (top == 0) {
+        clearInterval(timer);
+      }
+    }, 20)
+}
+
+
+
+
+// window.onload = function () {
+//   scrollTop = () => {
+//     var timer = setInterval(
+//       fn, 30)
+//   }
+// }

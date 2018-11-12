@@ -3,7 +3,7 @@
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var res = xhr.responseText;
-      console.log(res);
+      // console.log(res);
       var header = $('header');
       header.innerHTML = res;
     }
@@ -19,7 +19,7 @@
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var res = xhr.responseText;
-      console.log(res);
+      // console.log(res);
       var footer = $('footer');
       footer.innerHTML = res;
     }

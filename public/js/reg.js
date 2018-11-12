@@ -72,7 +72,6 @@ checkUname = () => { //检查输入用户名，没有改完。
   if (!isUname) { //验证失败，则显示输入框为橙红色。
     $('uname').style.border = '1px solid #F76120';
   }
-
 }
 
 checkPhone = () => { //检查输入手机
@@ -175,7 +174,7 @@ checkSafe = () => { //检查安全等级
   if (/\d/.test(upwd) || upwd.length > 12) {
     lv++;
   }
-  //当密码长度大于6且含有字母时，安全等级加一。
+  //当密码含有字母时，安全等级加一。
   if (/[a-zA-Z]/.test(upwd)) {
     lv++;
   }
