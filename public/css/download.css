@@ -1,0 +1,114 @@
+.header-left {
+  width: 162px;
+  height: 48px;
+  background: url('../image/header-logo-black.png') 0% 0% /cover no-repeat;
+}
+
+.header-right a {
+  box-sizing: border-box;
+  display: inline-block;
+  color: #000;
+  height: 70px;
+  line-height: 70px;
+}
+
+.fix {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 10px 0px;
+}
+
+section {
+  width: 100%;
+}
+
+.download_wrap {
+  width: 1440px;
+  margin: 68px auto;
+}
+
+.download_top,
+.download_bottom {
+  width: 100%;
+  height: 640px;
+  background: #464;
+}
+
+.download_top {
+  background: url(../image/download/download_1.png);
+  position: relative;
+}
+
+.download_bottom {
+  background: url(../image/download/download_2.png);
+}
+
+.download_method {
+  height: 114px;
+  width: 310px;
+  position: absolute;
+  top: 330px;
+  left: 830px;
+}
+
+.download_link {
+  height: 114px;
+  width: 189px;
+  display: inline-flex;
+  flex-flow: wrap column;
+  justify-content: space-between;
+}
+
+.iPhone,
+.Android {
+  display: inline-block;
+  width: 189px;
+  height: 49px;
+  line-height: 49px;
+  color: #333;
+  font-size: 16px;
+  text-align: right;
+  text-decoration: none;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.iPhone:hover,
+.Android:hover {
+  color: #FFD705;
+  background: #333;
+}
+
+.ico_iPhone,
+.ico_Android {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.ico_iPhone {
+  width: 18px;
+  margin-right: 20px;
+  background: url(../image/download/download_icon.png);
+}
+
+.iPhone:hover .ico_iPhone {
+  background-position: -26px 0px;
+}
+
+.ico_Android {
+  width: 25px;
+  margin-right: 4px;
+  background: url(../image/download/download_icon.png) 1px -33px;
+}
+
+.Android:hover .ico_Android {
+  background-position: -26px -33px;
+}
+
+.code {
+  vertical-align: bottom;
+}

@@ -1,6 +1,7 @@
 .my_color {
   color: #FFBA1E;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -84,7 +85,10 @@ nav {
   background: url(../image/serviceintro.png) no-repeat 0 0/contain;
   margin: 0 auto;
   position: relative;
-  top: 200px;
+  /* 200合理 */
+  top: 400px;
+  opacity: 0;
+  transition: 1.5s all;
 }
 
 .part-2-title {
@@ -93,7 +97,10 @@ nav {
   background: url(../image/story.png) no-repeat 0 0/contain;
   margin: 0 auto;
   position: relative;
-  top: 100px;
+  /* top: 100px; */
+  top: 300px;
+  opacity: 0;
+  transition: 1.5s all;
 }
 
 .list {
@@ -101,7 +108,10 @@ nav {
   width: 638px;
   height: 620px;
   position: relative;
-  top: 250px;
+  /* 250最佳 */
+  top: 600px;
+  opacity: 0;
+  transition: 1.5s all;
 }
 
 .display {
@@ -109,7 +119,10 @@ nav {
   width: 346px;
   height: 708px;
   position: relative;
-  top: 200px;
+  /* 200最佳 */
+  top: 650px;
+  opacity: 0;
+  transition: 1.5s all;
 }
 
 .list-title {
@@ -351,7 +364,10 @@ li.case-item-wrap {
 
 .carousel-case-wrap {
   position: absolute;
-  top: 310px;
+  /* top: 310px; */
+  top: 550px;
+  opacity: 0;
+  transition: 1.5s all;
 }
 
 
@@ -422,4 +438,64 @@ li.case-item-wrap {
 
 #caseNext {
   left: 1020px;
+}
+
+.side_nav {
+  width: 124px;
+  height: 258px;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 10px 0px;
+  border-radius: 4px;
+  position: fixed;
+  left: 100%;
+  top: 660px;
+  transform: translate(-50%);
+  transition: all 0.2s linear;
+  /* z-index: 99; */
+}
+
+.side_nav:hover {
+  transform: translate(-100%);
+}
+
+.side_content {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.backTop {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.side_nav::before {
+  content: '';
+  display: table;
+}
+
+.backTop:link {
+  color: #999;
+}
+
+.backTop:visited {
+  color: #999;
+}
+
+.wm-app p,
+.wx-app p {
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.wm-app img,
+.wx-app img {
+  width: 64px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 10px;
 }
