@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>个人中心</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/user_center.css">
+  <!-- <script src="js/onscroll.js"></script> -->
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/common_module.js"></script>
+
+
+</head>
+
+<body onload="(account.onclick())">
+  <header id="header">
+
+  </header>
+
+  <section>
+    <div class="user_center">
+      <ul class="list">
+        <li id="order">三个月订单</li>
+        <li id="account" class="active">我的账号</li>
+        <li id="collect">我的收藏</li>
+      </ul>
+      <div class="display">
+        <div class="my_order hide">
+        </div>
+        <div class="my_collect hide">
+        </div>
+        <div class="my_account">
+        </div>
+
+      </div>
+
+      <div class="update">
+        <div class="content_update">
+          <div class="info_update">
+            <div class="uname">
+              <span>用户名称：</span><input type="text" class="newName" maxlength="16" onblur="checkUname()"><i class="alert_ico"></i>
+              <span class="alert_msg"></span>
+            </div>
+
+            <div class="phone">
+              <span>手机号码：</span><input type="text" class="newPhone" maxlength="11" onblur="checkPhone()"><i class="alert_ico"></i>
+              <span class="alert_msg"></span>
+            </div>
+
+            <div class="email">
+              <span>电子邮箱：</span><input type="text" class="newEmail" maxlength="24"><i class="alert_ico"></i> <span
+                class="alert_msg"></span>
+            </div>
+
+            <div class="real_name">
+              <span>真实姓名：</span><input type="text" class="newReal"><i class="alert_ico"></i> <span class="alert_msg"></span>
+            </div>
+
+            <div class="gender">
+              <span>性别：</span>
+              <div class="gender_sel">
+                <label> <span>男</span> <input type="radio" name="gender" value="1"></label>
+                <label> <span>女</span> <input type="radio" name="gender" value="0"></label>
+                <label> <span>保密</span> <input type="radio" name="gender" value="2"></label>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="query">确认</button> <button class="cancel">取消</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <script src="js/user_center.js"></script>
+</body>
+
+</html>

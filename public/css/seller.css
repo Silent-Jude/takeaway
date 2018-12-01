@@ -1,0 +1,211 @@
+.header-left {
+  width: 162px;
+  height: 48px;
+  background: url('../image/header-logo-black.png') 0% 0% /cover no-repeat;
+}
+
+.header-right a {
+  box-sizing: border-box;
+  display: inline-block;
+  color: #000;
+  height: 70px;
+  line-height: 70px;
+}
+
+.fix {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 10px 0px;
+}
+
+
+section {
+  margin-top: 70px;
+  background: #f5f5f5;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.seller {
+  width: 980px;
+  height: 3000px;
+  margin: 0 auto;
+}
+
+.top_bar {
+  height: 30px;
+  padding: 30px 0;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.classify_wrap {
+  height: 40px;
+  padding: 20px 10px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notice {
+  background: #fff;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-top: 14px;
+}
+
+.sellerList {
+  margin-top: 14px;
+  display: flex;
+  flex-flow: row wrap;
+  background: #fff;
+}
+
+.rest {
+  width: 242px;
+  height: 288px;
+  /* background: lightseagreen; */
+  /* border-bottom: 1px solid red; */
+  position: relative;
+}
+
+.rest:hover .shade {
+  visibility: visible;
+  z-index: 10;
+}
+
+.shade {
+  width: 100%;
+  height: 269px;
+  background: rgba(155, 155, 155, 0.5);
+  /* border: 1px solid blue; */
+  margin: 0 auto;
+  z-index: 10;
+  visibility: hidden;
+  /* position: absolute; */
+  /* transform: translate(-50%,-50%) */
+}
+
+.shade .collect {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10
+}
+
+.shade i {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background: url('../image/seller/icons_559f3531_1.png') no-repeat -409px -311px;
+}
+
+.display {
+  width: 210px;
+  height: 250px;
+  /* background: pink; */
+  /* border: 1px solid blue; */
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 14px;
+  color: #707070;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.s_avatar img {
+  width: 208px;
+  height: 156px;
+}
+
+.s_title {
+  font-size: 16px;
+  color: #313131;
+}
+.s_info{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.star img {
+  width: 12px;
+}
+
+.classify span{
+  margin-right: 20px;
+}
+.classify a{
+  margin-right: 20px;
+}
+
+
+
+.userLog {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.userLog a {
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  background: #fff;
+  color: #333;
+  border-radius: 3px;
+  margin-right: 8px;
+  padding: 0 19px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.username {
+  width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fff url(../image/waimai/user-down-arrow.png) no-repeat 90% center /12px 6px;
+  text-align: center;
+  padding-right: 30px;
+  order: 2;
+}
+
+a.myOrder {
+  background: #fff url(../image/waimai/order-list.png) no-repeat 10px 6px /15px 18px;
+  padding-left: 30px;
+  order: 1;
+}
+
+
+.myCenter {
+  background: #fff;
+  padding: 10px 10px;
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  border-radius: 3px;
+}
+
+.myCenter button {
+  display: block;
+  width: 96px;
+  height: 36px;
+  outline: none;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.myCenter button:hover {
+  background: #eee
+}

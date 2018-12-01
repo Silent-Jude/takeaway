@@ -1,0 +1,277 @@
+.header-left {
+  width: 162px;
+  height: 48px;
+  background: url('../image/header-logo-black.png') 0% 0% /cover no-repeat;
+}
+
+.header-right a {
+  box-sizing: border-box;
+  display: inline-block;
+  color: #000;
+  height: 70px;
+  line-height: 70px;
+}
+
+.fix {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 10px 0px;
+}
+
+section {
+  margin-top: 70px;
+  background: #F5F5F5;
+  min-height: 500px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.warning {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: url(../image/icon.png) 0 -296px;
+  margin-left: 10px
+}
+
+.rightico {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: url(../image/icon.png) 0 -453px;
+  margin-left: 10px
+}
+
+.user_center {
+  width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.list,
+.my_collect {
+  background: #fff;
+
+}
+
+.list {
+  width: 170px;
+  list-style: none;
+}
+
+.list li {
+  margin-top: 20px;
+  height: 56px;
+  line-height: 56px;
+  cursor: pointer;
+  text-indent: 60px;
+  font-size: 14px;
+}
+
+#order {
+  background: url(../image/center/order-tip.svg) no-repeat 15% center/26px 26px;
+}
+
+#order:hover {
+  background-color: #FAFAFA;
+  background-image: url(../image/center/order-tip-active.svg)
+}
+
+#account {
+  background: url(../image/center/account-tip.svg) no-repeat 15% center/26px 26px;
+}
+
+#account:hover {
+  background-color: #FAFAFA;
+  background-image: url(../image/center/account-tip-active.svg)
+}
+
+#collect {
+  background: url(../image/center/collect-tip.svg) no-repeat 15% center/26px 26px;
+}
+
+#collect:hover {
+  background-color: #FAFAFA;
+  background-image: url(../image/center/collect-tip-active.svg)
+}
+
+#collect.active {
+  background-color: #FAFAFA !important;
+  background-image: url(../image/center/collect-tip-active.svg) !important;
+}
+
+#account.active {
+  background-color: #FAFAFA !important;
+  background-image: url(../image/center/account-tip-active.svg) !important;
+}
+
+#order.active {
+  background-color: #FAFAFA !important;
+  background-image: url(../image/center/order-tip-active.svg) !important;
+}
+
+.gray {
+  background: #FAFAFA
+}
+
+.my_collect {
+  width: 796px;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap row;
+  align-content: flex-start
+}
+
+.display {
+  width: 796px;
+  background: #fff;
+
+  overflow: hidden;
+}
+
+.update {
+  width: 796px;
+  height: 424px;
+  position: absolute;
+  /* 184合适 */
+  left: 184px;
+  /* 0合适 */
+  top: -500px;
+  color: #313131;
+  font-size: 14px;
+  background: #fff;
+
+  transition: .5s all linear;
+  /* z-index: 10; */
+}
+
+.update .content_update {
+  /* width: 400px; */
+  height: 350px;
+margin-left: 200px;
+}
+
+.info_update {
+  margin-bottom: 30px;
+}
+
+.info_update>div {
+  margin-top: 40px;
+}
+
+
+.gender_sel {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.gender_sel label {
+  margin-right: 20px;
+}
+
+.query,
+.cancel {
+  width: 80px;
+  height: 34px;
+  background: #ffd161;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* position: relative;
+  left: 50%;
+  transform: translate(-50%); */
+  margin-right: 80px;
+}
+
+
+
+
+
+
+
+
+
+.item {
+  width: 368px;
+  height: 123px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item:hover h4 {
+  color: #FFA735;
+}
+
+.item>img {
+  margin-left: 20px;
+  width: 108px;
+  height: 81px;
+}
+
+.item .content {
+  height: 81px;
+  margin-left: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.star img {
+  width: 12px;
+}
+
+.content span {
+  color: #999;
+  font-size: 14px;
+}
+
+.content h4 {
+  font-size: 15px;
+}
+
+.info {
+  width: 400px;
+  height: 350px;
+  margin: 20px auto;
+  font-size: 14px;
+  color: #313131;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info div {
+  /* background: #F5F5F5; */
+  width: 400px;
+}
+
+
+.info div>:first-child {
+  display: inline-block;
+  margin-right: 30px;
+  width: 80px;
+  text-align-last: justify;
+}
+
+.avatar img {
+  width: 60px;
+}
+
+.update_btn {
+  width: 80px;
+  height: 34px;
+  background: #ffd161;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%)
+}

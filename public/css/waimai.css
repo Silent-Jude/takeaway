@@ -1,0 +1,136 @@
+.header-left {
+  width: 162px;
+  height: 48px;
+  background: url('../image/header-logo-black.png') 0% 0% /cover no-repeat;
+}
+
+.header-right a {
+  box-sizing: border-box;
+  display: inline-block;
+  color: #000;
+  height: 70px;
+  line-height: 70px;
+}
+
+.fix {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 10px 0px;
+}
+
+.hide {
+  display: none;
+}
+
+.bg {
+  margin-top: 68px;
+  width: 100%;
+  background: url(../image/bg1.jpg) no-repeat 0 0/cover;
+}
+
+.content {
+  width: 730px;
+  /* border: 1px red solid; */
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.userLog {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.userLog a {
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  background: #fff;
+  color: #333;
+  border-radius: 3px;
+  margin-right: 8px;
+  padding: 0 19px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.username {
+  width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fff url(../image/waimai/user-down-arrow.png) no-repeat 90% center /12px 6px;
+  text-align: center;
+  padding-right: 30px;
+  order: 2;
+}
+
+a.myOrder {
+  background: #fff url(../image/waimai/order-list.png) no-repeat 10px 6px /15px 18px;
+  padding-left: 30px;
+  order: 1;
+}
+
+.search {
+  width: 730px;
+  height: 60px;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-top: 22px;
+  display: flex;
+  text-align: center;
+}
+
+.search a {
+  width: 90px;
+  height: 60px;
+  line-height: 60px;
+  background: #fff url(../image/waimai/user-down-arrow.png) no-repeat 95% center;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.search input {
+  width: 510px;
+  border: none;
+  outline: none;
+  background: #fff;
+  padding-left: 20px;
+}
+
+.search button {
+  background: #FFD161;
+  width: 130px;
+  border: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.myCenter {
+  background: #fff;
+  padding: 10px 10px;
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  border-radius: 3px;
+}
+
+.myCenter button {
+  display: block;
+  width: 96px;
+  height: 36px;
+  outline: none;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.myCenter button:hover {
+  background: #eee
+}

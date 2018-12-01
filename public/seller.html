@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/seller.css">
+
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/common_module.js"></script>
+</head>
+
+<body>
+  <header id="header"></header>
+
+  <section>
+    <div class="seller">
+      <div class="top_bar">
+        <div class="district"></div>
+
+        <div class="userLog">
+          <a class="reg" href="reg.html">注册</a>
+          <a class="log" href="login.html">登录</a>
+          <a class="username">数据库调出昵称</a>
+          <div class="myCenter hide">
+            <button class="collect" onclick="toUserCenter()">个人中心</button>
+            <button class="logOut">退出登录</button>
+          </div>
+          <a class="myOrder">我的订单</a>
+        </div>
+
+      </div>
+      <div class="classify_wrap">
+        <div class="classify">
+          <!-- 1粉面粥炒饭,2正餐优选,3糕点下午茶,4特色小吃 -->
+          <span>商家分类|</span>
+          <a>粉面粥炒饭</a>
+          <a>正餐优选</a>
+          <a>糕点下午茶</a>
+          <a>特色小吃</a>
+        </div>
+        <div class="search"><input class="keyword" type="text" /><button class="searchFood">搜索</button></div>
+      </div>
+      <div class="notice">
+        <p><i></i>美团外卖向消费者郑重承诺:<a href="">平台公示</a></p>
+      </div>
+      <div class="sellerList">
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <script src="js/seller.js"></script>
+</body>
+
+</html>
